@@ -981,7 +981,8 @@ Cal("init", {origin:"https://cal.com"});
   }
   async function start(){
     if(!window.Clerk){ return; }
-    try{ await window.Clerk.load(); }catch(e){ return; }
+    var __loc; try{ __loc=(await import("https://esm.sh/@clerk/localizations@3")).itIT; }catch(_e){}
+    try{ await window.Clerk.load(__loc?{localization:__loc}:{}); }catch(e){ return; }
     var C=window.Clerk;
     function render(){
       if(C.user){
