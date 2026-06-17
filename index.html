@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://roof55-app.vercel.app/">
+<meta property="og:title" content="Roof55studio — Studio di registrazione · Roma">
+<meta property="og:description" content="Studio di registrazione, produzione musicale e contenuti creativi a Roma Est. Dal provino al master.">
+<meta property="og:image" content="https://roof55-app.vercel.app/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
 <title>Roof55studio — Studio di Registrazione & Produzione Musicale · Roma</title>
 <meta name="description" content="Roof55studio — studio di registrazione, produzione musicale e contenuti creativi a Roma, zona Centocelle/Prenestino. Produzione, recording, editing, mix, master, direzione artistica e visual. Spazio su appuntamento.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -431,6 +438,15 @@ header:not(.scrolled){background:linear-gradient(180deg,rgba(10,11,13,.62) 0%,rg
 .form-msg{font-size:.9rem;color:var(--ink-dim);min-height:1.2em;margin:0}
 .form-msg.ok{color:#86d39a}
 .form-msg.err{color:#e98b6b}
+
+/* cookie banner + consenso */
+.cookie-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:5000;background:rgba(14,15,18,.97);border:1px solid var(--line);border-radius:14px;padding:16px 20px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;backdrop-filter:blur(8px);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.cookie-banner p{margin:0;color:var(--ink-dim);font-size:.9rem;max-width:760px}
+.cookie-banner a{color:var(--acc)}
+.cookie-banner .btn{padding:10px 20px}
+.consent-row{display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--ink-dim);line-height:1.5}
+.consent-row input{margin-top:3px;flex-shrink:0}
+.consent-row a{color:var(--acc)}
 </style>
 <script async crossorigin="anonymous" data-clerk-publishable-key="pk_test_ZWFnZXItd29sZi04NS5jbGVyay5hY2NvdW50cy5kZXYk" src="https://eager-wolf-85.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js" type="text/javascript"></script>
 </head>
@@ -862,6 +878,7 @@ header:not(.scrolled){background:linear-gradient(180deg,rgba(10,11,13,.62) 0%,rg
               <option value="Altro">Altro</option>
             </select>
           </label>
+          <label class="consent-row"><input type="checkbox" id="consent" name="consent" required> Acconsento al trattamento dei miei dati personali secondo la <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</label>
           <button type="submit" class="btn btn-acc">Salva profilo →</button>
           <p id="form-msg" class="form-msg" role="status"></p>
         </form>
@@ -927,7 +944,7 @@ header:not(.scrolled){background:linear-gradient(180deg,rgba(10,11,13,.62) 0%,rg
       </div>
     </div>
     <div class="foot-bottom">
-      <p>© 2026 Roof55studio — Studio di registrazione, Roma. Tutti i diritti riservati.</p>
+      <p>© 2026 Roof55studio — Studio di registrazione, Roma. Tutti i diritti riservati. · <a href="privacy.html" style="color:var(--ink-faint)">Privacy &amp; Cookie</a></p>
       <div class="socials">
         <a href="#" aria-label="Instagram">◎</a>
         <a href="#" aria-label="YouTube">▶</a>
@@ -1001,6 +1018,7 @@ Cal("init", {origin:"https://cal.com"});
     var form=$("profile-form");
     if(form) form.addEventListener("submit", async function(e){
       e.preventDefault();
+      var __c=document.getElementById("consent"); if(__c&&!__c.checked){var m0=$("form-msg");m0.className="form-msg err";m0.textContent="Devi accettare la Privacy Policy.";return;}
       var msg=$("form-msg"); msg.className="form-msg"; msg.textContent="Salvataggio…";
       try{
         var token=await C.session.getToken();
@@ -1017,5 +1035,10 @@ Cal("init", {origin:"https://cal.com"});
   else window.addEventListener("load", start);
 })();
 </script>
+<div class="cookie-banner" id="cookie-banner" hidden>
+  <p>Usiamo solo cookie tecnici necessari (login e prenotazioni). Continuando accetti la <a href="privacy.html">Privacy &amp; Cookie Policy</a>.</p>
+  <button type="button" class="btn btn-acc" id="cookie-ok">Accetto</button>
+</div>
+<script>(function(){var b=document.getElementById("cookie-banner");if(!b)return;try{if(!localStorage.getItem("r55_cookie_ok"))b.hidden=false;}catch(e){b.hidden=false;}var k=document.getElementById("cookie-ok");if(k)k.addEventListener("click",function(){try{localStorage.setItem("r55_cookie_ok","1");}catch(e){}b.hidden=true;});})();</script>
 </body>
 </html>
