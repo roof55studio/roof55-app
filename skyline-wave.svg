@@ -1,0 +1,24 @@
+<svg width="680" height="300" viewBox="0 0 680 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t d">
+  <title id="t">Roof55studio — skyline e waveform</title>
+  <desc id="d">Profilo di tetto che si trasforma in onda sonora, con wordmark Roof55studio e payoff Sound · Vision · Direction.</desc>
+  <defs>
+    <linearGradient id="wave" x1="356" y1="120" x2="650" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0C7AE"/>
+      <stop offset=".45" stop-color="#E0974A"/>
+      <stop offset="1" stop-color="#A8542F"/>
+    </linearGradient>
+  </defs>
+
+  <!-- profilo tetto -->
+  <path d="M44 150 L140 90 L196 120 L196 94 L240 94 L240 120 L356 120"
+        stroke="#F4EFE7" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- waveform -->
+  <path d="M356 120 L376 120 L388 96 L400 148 L412 80 L424 150 L436 102 L448 132 L460 112 L472 123 L486 119 L508 120 L636 120"
+        stroke="url(#wave)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- wordmark -->
+  <text x="340" y="214" text-anchor="middle" font-family="'Space Grotesk', Inter, Arial, sans-serif" font-size="52" letter-spacing="2">
+    <tspan fill="#F4EFE7" font-weight="500">Roof</tspan><tspan fill="#E0974A" font-weight="700">55</tspan><tspan fill="#8C9BB0" font-weight="400">studio</tspan>
+  </text>
+  <text x="340" y="258" text-anchor="middle" font-family="'Space Grotesk', Inter, Arial, sans-serif" font-size="16" font-weight="500" letter-spacing="7" fill="#8C9BB0">SOUND · VISION · DIRECTION</text>
+</svg>
